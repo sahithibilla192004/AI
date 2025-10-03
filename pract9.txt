@@ -1,0 +1,80 @@
+# Associative law
+print("=== Arithmetic Associative law ===")
+a = int(input("Enter value for a:"))
+b = int(input("Enter value for b:"))
+c = int(input("Enter value for c:"))
+
+lhs_add = (a+b)+c
+rhs_add = a+(b+c)
+
+print(f"(a+b)+c = ({a}+{b})+{c} = {lhs_add}")
+print(f"a+(b+c) = {a}+({b}+{c}) = {rhs_add}")
+
+if lhs_add == rhs_add:
+    print("Addition Associative law holds")
+else:
+    print("Addition Associative law does not holds")
+
+lhs_mul = (a*b)*c
+rhs_mul = a*(b*c)
+
+print(f"(a*b)*c = ({a}*{b})*{c} = {lhs_mul}")
+print(f"a*(b*c) = {a}*({b}*{c}) = {rhs_mul}")
+
+print("=== Boolean Associative law ===")
+print("Enter boolean values as 1(True) or 0(Flase):")
+A = int(input("Enter value for A:"))
+B = int(input("Enter value for B:"))
+C = int(input("Enter value for C:"))
+
+lhs_or = (A or B) or C
+rhs_or = A or (B or C)
+
+print(f"(A or B) or C = ({A} or {B}) or {C} = {lhs_or}")
+print(f" A or (B or C) = {A} or ({B} or {C}) = {rhs_or}")
+
+if lhs_or == rhs_or:
+    print("OR Associative law holds")
+else:
+    print("OR Associative law does not holds")
+
+lhs_and = (A and B) and C
+rhs_and = A and (B and C)
+
+print(f"(A and B) and C = ({A} and {B}) and {C} = {lhs_and}")
+print(f" A and (B and C) = {A} and ({B} and {C}) = {rhs_and}")
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Distributive law
+print("=== Distirbutive Law ===")
+a = int(input("Enter value for a:"))
+b = int(input("Enter value for b:"))
+c = int(input("Enter value for c:"))
+
+lhs = a*(b+c)
+rhs = (a*b) + (a*c)
+
+print(f"LHS = {a}* ({b}+{c}) = {lhs}")
+print(f"RHS = ({a}*{b}) + ({a}*{c}) = {rhs}")
+
+if lhs == rhs:
+    print("Distributive law holds for Ar")
+else:
+    print("Not equal")
+
+print("=== Boolean Distributive Law ===")
+print("Enter boolean values as 1(True) or 0(Flase):")
+A = int(input("Enter value for A:"))
+B = int(input("Enter value for B:"))
+C = int(input("Enter value for C:"))
+
+lhs_bool = A and (B or C)
+rhs_bool = (A and B) or (A and C)
+
+print(f"LHS = {A} and ({B} or {C}) = {lhs_bool}")
+print(f"RHS = ({A} and {B}) or ({A} and {C}) = {rhs_bool}")
+
+if lhs_bool == rhs_bool:
+    print("disributive law holds for boolean logic")
+else:
+    print("not equal")

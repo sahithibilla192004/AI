@@ -1,0 +1,63 @@
+# Alpha Beta Pruning 
+
+tree = {
+    'A': ['B', 'C', 'D', 'E'],
+    'B': [3, 5],
+    'C': [6, 9],
+    'D': [8, 5],
+    'E': [2, 9]
+}
+
+def minimax_alpha_beta(node, depth, alpha, beta, is_max_player):
+    # Base Case (Leaf or Depth 0)
+    if depth == 0 or node not in tree:
+        return node if isinstance(node, int) else tree[node][0]
+
+    if is_max_player:
+        value = float('-inf')
+        for child in tree[node]:
+            value = max(value, minimax_alpha_beta(child, depth-1, alpha, beta, False))
+            alpha = max(alpha, value)
+            if alpha >= beta:   # Prune
+                print(f"Pruning at node {node}")
+                break
+        return value
+
+    else:
+        value = float('inf')
+        for child in tree[node]:
+            value = min(value, minimax_alpha_beta(child, depth-1, alpha, beta, True))
+            beta = min(beta, value)
+            if beta <= alpha:   # Prune
+                print(f"Pruning at node {node}")
+                break
+        return value
+
+best_score = minimax_alpha_beta('A', 1, float('-inf'), float('inf'), True)
+print(f"The best score is: {best_score}")
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Rock paper scissor
+
+import random
+def play():
+    user = input("enter your choices from rock, paper, scissors:").lower()
+    choices = ["rock", "paper", "scissors"]
+    computer = random.choice(choices)
+
+    print(f"\n you choose:{user}")
+    print(f"computer choose: {computer}")
+
+    if user == computer:
+        return "It,s a tie !"
+    elif(user == "rock" and computer == "scissors")or\
+        (user == "paper" and computer == "rock")or\
+        (user == "scissors" and computer == "paper"):
+        return "you win "
+    elif user not  in choices:
+        return "Invalid choice"
+    else:
+        return "computer Win"
+print(play())
+
+        

@@ -1,0 +1,20 @@
+# 8.. Constraint satisfaction problem
+
+import itertools
+variables = ["A", "B", "C"]
+colors = ["Red", "Blue", "Yellow"]
+
+all_assignment = itertools.product(colors, repeat=len(variables))
+
+def valid(assignment):
+    A,B,C = assignment
+    return (A != B) and (B != C) and (A != C)
+
+solutions = []
+for assignment in all_assignment:
+    if valid(assignment):
+        solutions.append(dict(zip(variables, assignment)))
+
+print("valid coloring of the map:")
+for sol in solutions:
+    print(sol)
